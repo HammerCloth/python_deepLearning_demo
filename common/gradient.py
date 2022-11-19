@@ -45,6 +45,8 @@ def numerical_gradient(f, x):
         x[idx] = tmp_val - h 
         fxh2 = f(x) # f(x-h)
         grad[idx] = (fxh1 - fxh2) / (2*h)
+
+        # print("fxh1:"+str(fxh1)+" fxh2:"+str(fxh2))
         
         x[idx] = tmp_val # 还原值
         it.iternext()   
