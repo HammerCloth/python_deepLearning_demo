@@ -6,6 +6,7 @@ from common.util import im2col, col2im
 
 class Relu:
     def __init__(self):
+        # 这里通过一个mask来作为不同条件判断，用于批量判断，比较牛逼
         self.mask = None
 
     def forward(self, x):
@@ -83,6 +84,7 @@ class SoftmaxWithLoss:
     def backward(self, dout=1):
         batch_size = self.t.shape[0]
         if self.t.size == self.y.size: # 监督数据是one-hot-vector的情况
+            # dx = (self.y - self.t)
             dx = (self.y - self.t) / batch_size
         else:
             dx = self.y.copy()
